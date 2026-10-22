@@ -1,11 +1,28 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const clicked = ref(false)
+const buttonClass = ref('bluebutton')
+function whenclicked() {
+  clicked.value = !clicked.value
+}
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <button :class="buttonClass" @click="whenclicked">button</button>
+  <p>{{ clicked }}</p>
 </template>
 
-<style scoped></style>
+<style scoped>
+.bluebutton {
+  background-color: #3b3f7a;
+  color: #eef7f9;
+  border: none;
+  border-radius:8px;
+  padding: 10px 20px;
+}
+.bluebutton:active {
+  background-color: #eef7f9;
+  color: #3b3f7a;
+}
+</style>
